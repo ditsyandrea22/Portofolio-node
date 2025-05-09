@@ -453,3 +453,33 @@ a {
 .service-card:nth-child(3), .project-card:nth-child(3) {
   animation-delay: 0.4s;
 }
+
+.social-links {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.social-links a {
+  color: white;
+  font-size: 1.25rem;
+  transition: all 0.2s;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.social-links a:hover {
+  color: var(--secondary);
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-3px);
+}
+
+.fa-x-twitter {
+  font-size: 1.1rem;
+  vertical-align: middle;
+}
