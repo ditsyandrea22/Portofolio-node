@@ -3,94 +3,148 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ditsy Andrea - Blockchain Node Portfolio</title>
+    <title>Ditsy Andrea | Blockchain Node Specialist</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <header>
+    <!-- Animated Background -->
+    <div class="animated-bg"></div>
+    
+    <!-- Navigation -->
+    <nav class="glass-nav">
         <div class="container">
-            <h1>Ditsy Andrea's Blockchain Nodes</h1>
-            <p>Professional Node Operator & Blockchain Enthusiast</p>
-        </div>
-    </header>
-
-    <nav>
-        <div class="container">
-            <ul>
-                <li><a href="#mainnet">Mainnet Nodes</a></li>
-                <li><a href="#testnet">Testnet Nodes</a></li>
-                <li><a href="#about">About Me</a></li>
-                <li><a href="#contact">Contact</a></li>
+            <div class="nav-brand">
+                <span class="logo-icon"><i class="fas fa-server"></i></span>
+                <span class="logo-text">DitsyAndrea</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#mainnet" class="nav-link active">Mainnet</a></li>
+                <li><a href="#testnet" class="nav-link">Testnet</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="https://t.me/cryptodozu" target="_blank" class="nav-cta">Join My Telegram</a></li>
             </ul>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
         </div>
     </nav>
 
-    <section id="stats" class="stats">
+    <!-- Hero Section -->
+    <header class="hero-section">
         <div class="container">
-            <div class="stat-box">
-                <h3>Total Nodes</h3>
-                <p class="count" data-target="12">0</p>
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="title-gradient">Blockchain Node</span>
+                    <span class="title-gradient">Infrastructure</span>
+                    <span class="title-gradient">Specialist</span>
+                </h1>
+                <p class="hero-subtitle">Reliable node operation with 99.9% uptime across multiple blockchain networks</p>
+                <div class="hero-cta">
+                    <a href="#mainnet" class="btn btn-primary">View My Nodes</a>
+                    <a href="#contact" class="btn btn-outline">Contact Me</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-value" data-count="12">0</div>
+                        <div class="stat-label">Total Nodes</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" data-count="99.9">0</div>
+                        <div class="stat-label">Uptime %</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" data-count="3">0</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                </div>
             </div>
-            <div class="stat-box">
-                <h3>Mainnet Nodes</h3>
-                <p class="count" data-target="7">0</p>
-            </div>
-            <div class="stat-box">
-                <h3>Testnet Nodes</h3>
-                <p class="count" data-target="5">0</p>
-            </div>
-            <div class="stat-box">
-                <h3>Uptime</h3>
-                <p class="count" data-target="99">0</p>
-                <span>%</span>
+            <div class="hero-visual">
+                <div class="node-visualization">
+                    <div class="network-node"></div>
+                    <div class="network-line"></div>
+                    <div class="network-node"></div>
+                    <div class="network-line"></div>
+                    <div class="network-node"></div>
+                    <div class="network-line"></div>
+                    <div class="network-node"></div>
+                </div>
             </div>
         </div>
-    </section>
+    </header>
 
+    <!-- Mainnet Nodes Section -->
     <section id="mainnet" class="nodes-section">
+        <div class="section-header">
+            <div class="container">
+                <h2 class="section-title">
+                    <i class="fas fa-link section-icon"></i>
+                    Mainnet Nodes
+                </h2>
+                <p class="section-subtitle">Production-grade nodes supporting live blockchain networks</p>
+            </div>
+        </div>
         <div class="container">
-            <h2>Mainnet Nodes</h2>
             <div class="nodes-grid" id="mainnet-nodes">
                 <!-- Nodes will be loaded here dynamically -->
             </div>
         </div>
     </section>
 
+    <!-- Testnet Nodes Section -->
     <section id="testnet" class="nodes-section">
+        <div class="section-header">
+            <div class="container">
+                <h2 class="section-title">
+                    <i class="fas fa-flask section-icon"></i>
+                    Testnet Nodes
+                </h2>
+                <p class="section-subtitle">Experimental nodes for testing and development purposes</p>
+            </div>
+        </div>
         <div class="container">
-            <h2>Testnet Nodes</h2>
             <div class="nodes-grid" id="testnet-nodes">
                 <!-- Nodes will be loaded here dynamically -->
             </div>
         </div>
     </section>
 
-    <section id="about" class="about">
+    <!-- About Section -->
+    <section id="about" class="about-section">
         <div class="container">
-            <h2>About Me</h2>
             <div class="about-content">
-                <img src="profile.jpg" alt="Ditsy Andrea" class="profile-img">
-                <div class="bio">
-                    <h3>Ditsy Andrea - Blockchain Specialist</h3>
-                    <p class="intro">Passionate blockchain developer and node operator with 3+ years of experience in deploying and maintaining decentralized infrastructure across multiple networks.</p>
+                <div class="about-text">
+                    <h2 class="section-title">
+                        <span class="title-gradient">About Me</span>
+                    </h2>
+                    <h3 class="about-name">Ditsy Andrea</h3>
+                    <p class="about-bio">
+                        Blockchain infrastructure specialist with 3+ years of experience running high-performance nodes across multiple networks. 
+                        I specialize in optimizing node performance, ensuring maximum uptime, and contributing to network decentralization.
+                    </p>
                     
-                    <div class="details">
-                        <div class="detail-column">
-                            <h4><i class="fas fa-code"></i> Technical Skills</h4>
+                    <div class="skills-container">
+                        <div class="skills-column">
+                            <h4 class="skills-title">
+                                <i class="fas fa-cogs"></i> Technical Skills
+                            </h4>
                             <ul class="skills-list">
-                                <li>Node setup & maintenance (EVM, Cosmos, etc.)</li>
-                                <li>Smart contract development (Solidity/Rust)</li>
-                                <li>Linux server administration</li>
-                                <li>Docker & Kubernetes</li>
-                                <li>Network security hardening</li>
+                                <li>Node setup & maintenance</li>
+                                <li>Network monitoring</li>
                                 <li>Performance optimization</li>
+                                <li>Security hardening</li>
+                                <li>Automated deployments</li>
+                                <li>Troubleshooting</li>
                             </ul>
                         </div>
                         
-                        <div class="detail-column">
-                            <h4><i class="fas fa-server"></i> Network Experience</h4>
-                            <ul class="network-list">
+                        <div class="skills-column">
+                            <h4 class="skills-title">
+                                <i class="fas fa-network-wired"></i> Network Experience
+                            </h4>
+                            <ul class="skills-list">
                                 <li>Ethereum (Mainnet & Testnets)</li>
                                 <li>Polygon PoS & zkEVM</li>
                                 <li>Binance Smart Chain</li>
@@ -100,69 +154,33 @@
                             </ul>
                         </div>
                     </div>
-
+                    
                     <div class="social-profiles">
-                        <h4>Connect With Me:</h4>
+                        <h4 class="social-title">Connect With Me:</h4>
                         <div class="social-links">
-                            <a href="https://github.com/ditsyandrea22" target="_blank" class="github">
+                            <a href="https://github.com/ditsyandrea22" target="_blank" class="social-link github">
                                 <i class="fab fa-github"></i> GitHub
                             </a>
-                            <a href="https://x.com/Crypto_ditsy" target="_blank" class="twitter">
+                            <a href="https://x.com/Crypto_ditsy" target="_blank" class="social-link twitter">
                                 <i class="fab fa-twitter"></i> Twitter
                             </a>
-                            <a href="https://t.me/cryptodozu" target="_blank" class="telegram">
+                            <a href="https://t.me/cryptodozu" target="_blank" class="social-link telegram">
                                 <i class="fab fa-telegram"></i> Telegram
                             </a>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2>Get In Touch</h2>
-            <div class="contact-container">
-                <form id="contact-form">
-                    <div class="form-group">
-                        <input type="text" placeholder="Your Name" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" placeholder="Your Email" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea placeholder="Your Message" required></textarea>
-                    </div>
-                    <button type="submit">Send Message</button>
-                </form>
                 
-                <div class="direct-contact">
-                    <h3>Direct Contacts</h3>
-                    <div class="contact-methods">
-                        <a href="mailto:your-email@example.com" class="contact-item">
-                            <i class="fas fa-envelope"></i> Email Me
-                        </a>
-                        <a href="https://t.me/cryptodozu" target="_blank" class="contact-item">
-                            <i class="fab fa-telegram"></i> Telegram
-                        </a>
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i> Based in Indonesia
+                <div class="about-visual">
+                    <div class="profile-card">
+                        <div class="profile-image"></div>
+                        <div class="profile-badge">
+                            <i class="fas fa-check"></i> Verified Node Operator
                         </div>
-                    </div>
-                    
-                    <div class="social-links">
-                        <h4>Follow Me:</h4>
-                        <div class="social-icons">
-                            <a href="https://github.com/ditsyandrea22" target="_blank" class="github">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            <a href="https://x.com/Crypto_ditsy" target="_blank" class="twitter">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a href="https://t.me/cryptodozu" target="_blank" class="telegram">
-                                <i class="fab fa-telegram"></i>
-                            </a>
+                        <div class="profile-dots">
+                            <div class="dot dot-1"></div>
+                            <div class="dot dot-2"></div>
+                            <div class="dot dot-3"></div>
                         </div>
                     </div>
                 </div>
@@ -170,38 +188,143 @@
         </div>
     </section>
 
-    <footer>
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="contact-header">
+                <h2 class="section-title">
+                    <span class="title-gradient">Get In Touch</span>
+                </h2>
+                <p class="section-subtitle">Have a project or need node infrastructure support? Let's talk.</p>
+            </div>
+            
+            <div class="contact-container">
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+                </form>
+                
+                <div class="contact-info">
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="info-content">
+                            <h4>Email Me</h4>
+                            <a href="mailto:contact@ditsyandrea.com">contact@ditsyandrea.com</a>
+                        </div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fab fa-telegram"></i>
+                        </div>
+                        <div class="info-content">
+                            <h4>Telegram</h4>
+                            <a href="https://t.me/cryptodozu" target="_blank">@cryptodozu</a>
+                        </div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="info-content">
+                            <h4>Location</h4>
+                            <p>Jakarta, Indonesia</p>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="https://github.com/ditsyandrea22" target="_blank" class="social-icon github">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://x.com/Crypto_ditsy" target="_blank" class="social-icon twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://t.me/cryptodozu" target="_blank" class="social-icon telegram">
+                            <i class="fab fa-telegram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <h3>Ditsy Andrea</h3>
-                    <p>Blockchain Node Specialist</p>
+                    <div class="logo-icon"><i class="fas fa-server"></i></div>
+                    <div class="logo-text">DitsyAndrea</div>
+                    <p class="footer-bio">Blockchain node specialist providing reliable infrastructure services.</p>
                 </div>
                 
                 <div class="footer-links">
                     <h4>Quick Links</h4>
                     <ul>
-                        <li><a href="#mainnet">My Nodes</a></li>
+                        <li><a href="#mainnet">Mainnet Nodes</a></li>
+                        <li><a href="#testnet">Testnet Nodes</a></li>
                         <li><a href="#about">About Me</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
                 
-                <div class="footer-social">
-                    <h4>Connect</h4>
-                    <div class="social-icons">
-                        <a href="https://github.com/ditsyandrea22" target="_blank"><i class="fab fa-github"></i></a>
-                        <a href="https://x.com/Crypto_ditsy" target="_blank"><i class="fab fa-twitter"></i></a>
-                        <a href="https://t.me/cryptodozu" target="_blank"><i class="fab fa-telegram"></i></a>
-                    </div>
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#">Node Setup</a></li>
+                        <li><a href="#">Maintenance</a></li>
+                        <li><a href="#">Monitoring</a></li>
+                        <li><a href="#">Consulting</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-newsletter">
+                    <h4>Node Updates</h4>
+                    <p>Subscribe to receive network updates and status reports.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email">
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
                 </div>
             </div>
             
-            <div class="copyright">
-                <p>&copy; 2023 Ditsy Andrea. All rights reserved.</p>
+            <div class="footer-bottom">
+                <div class="copyright">
+                    &copy; 2025 Ditsy Andrea. All rights reserved.
+                </div>
+                <div class="footer-social">
+                    <a href="https://github.com/ditsyandrea22" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://x.com/Crypto_ditsy" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://t.me/cryptodozu" target="_blank"><i class="fab fa-telegram"></i></a>
+                </div>
             </div>
         </div>
     </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
 
     <script src="script.js"></script>
 </body>
