@@ -1,243 +1,111 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // ========== Mobile Menu Functionality ==========
-    const initMobileMenu = () => {
-        const hamburger = document.querySelector('.hamburger');
-        const navMenu = document.querySelector('.nav-menu');
-        
-        if (!hamburger || !navMenu) return;
+// Mobile Menu Toggle
+const hamburger = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-links');
 
-        hamburger.addEventListener('click', function() {
-            this.classList.toggle('active');
-            navMenu.classList.toggle('active');
-            document.body.classList.toggle('no-scroll');
-        });
-        
-        // Close mobile menu when clicking a link
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
-                document.body.classList.remove('no-scroll');
-            });
-        });
-    };
+hamburger.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
+  hamburger.classList.toggle('active');
+});
 
-    // ========== Portfolio Filtering ==========
-    const initPortfolioFilter = () => {
-        const filterButtons = document.querySelectorAll('.filter-btn');
-        const portfolioItems = document.querySelectorAll('.portfolio-item');
-        
-        if (!filterButtons.length || !portfolioItems.length) return;
+// Close mobile menu when clicking on a link
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('active');
+    hamburger.classList.remove('active');
+  });
+});
 
-        filterButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                // Remove active class from all buttons
-                filterButtons.forEach(btn => btn.classList.remove('active'));
-                
-                // Add active class to clicked button
-                button.classList.add('active');
-                
-                const filterValue = button.dataset.filter;
-                
-                // Filter portfolio items
-                portfolioItems.forEach(item => {
-                    const itemCategories = item.dataset.category.split(' ');
-                    const shouldShow = filterValue === 'all' || 
-                                      itemCategories.includes(filterValue);
-                    
-                    item.style.display = shouldShow ? 'block' : 'none';
-                    
-                    // Add animation when showing
-                    if (shouldShow) {
-                        item.style.animation = 'fadeIn 0.5s ease forwards';
-                    }
-                });
-            });
-        });
-    };
+// Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    
+    const targetId = this.getAttribute('href');
+    const targetElement = document.querySelector(targetId);
+    
+    if (targetElement) {
+      window.scrollTo({
+        top: targetElement.offsetTop - 80,
+        behavior: 'smooth'
+      });
+    }
+  });
+});
 
-    // ========== Form Submission ==========
-    const initContactForm = () => {
-        const contactForm = document.getElementById('contactForm');
-        if (!contactForm) return;
+// Sticky header on scroll
+window.addEventListener('scroll', () => {
+  const header = document.querySelector('.header');
+  header.classList.toggle('sticky', window.scrollY > 0);
+});
 
-        const formMessage = document.getElementById('form-message');
-        
-        contactForm.addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
-            // Show loading state
-            const submitButton = this.querySelector('button[type="submit"]');
-            const originalButtonText = submitButton.textContent;
-            submitButton.disabled = true;
-            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-            
-            try {
-                // Simulate form submission (replace with actual fetch in production)
-                await new Promise(resolve => setTimeout(resolve, 1500));
-                
-                // Show success message
-                if (formMessage) {
-                    formMessage.textContent = 'Thank you! Your message has been sent.';
-                    formMessage.className = 'form-message success';
-                    formMessage.style.display = 'block';
-                }
-                
-                // Reset form
-                this.reset();
-                
-                // Hide message after 5 seconds
-                setTimeout(() => {
-                    if (formMessage) formMessage.style.display = 'none';
-                }, 5000);
-            } catch (error) {
-                console.error('Form submission error:', error);
-                if (formMessage) {
-                    formMessage.textContent = 'Error sending message. Please try again.';
-                    formMessage.className = 'form-message error';
-                    formMessage.style.display = 'block';
-                }
-            } finally {
-                // Reset button state
-                submitButton.disabled = false;
-                submitButton.textContent = originalButtonText;
-            }
-        });
-    };
+// Animation on scroll
+const animateOnScroll = () => {
+  const elements = document.querySelectorAll('.service-card, .project-card, .about-content, .contact-container');
+  
+  elements.forEach(element => {
+    const elementPosition = element.getBoundingClientRect().top;
+    const screenPosition = window.innerHeight / 1.3;
+    
+    if (elementPosition < screenPosition) {
+      element.style.opacity = '1';
+      element.style.transform = 'translateY(0)';
+    }
+  });
+};
 
-    // ========== Smooth Scrolling ==========
-    const initSmoothScrolling = () => {
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (!targetElement) return;
-                
-                const headerHeight = document.querySelector('.header')?.offsetHeight || 70;
-                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-                
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-                
-                // Update URL without page jump
-                history.pushState(null, null, targetId);
-            });
-        });
-    };
+window.addEventListener('scroll', animateOnScroll);
+window.addEventListener('load', animateOnScroll);
 
-    // ========== Animate Elements on Scroll ==========
-    const initScrollAnimations = () => {
-        const animateSkillBars = () => {
-            document.querySelectorAll('.skill-level').forEach(bar => {
-                const width = bar.parentElement.previousElementSibling?.lastElementChild?.textContent || '0%';
-                bar.style.width = '0';
-                setTimeout(() => {
-                    bar.style.width = width;
-                    bar.style.opacity = '1';
-                }, 100);
-            });
-        };
+// Form submission
+const contactForm = document.querySelector('.contact-form');
+if (contactForm) {
+  contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    // Get form values
+    const name = contactForm.querySelector('input[type="text"]').value;
+    const email = contactForm.querySelector('input[type="email"]').value;
+    const message = contactForm.querySelector('textarea').value;
+    
+    // Here you would typically send the data to a server
+    console.log({ name, email, message });
+    
+    // Show success message
+    alert('Thank you for your message! I will get back to you soon.');
+    
+    // Reset form
+    contactForm.reset();
+  });
+}
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    // Animate skill bars when skills section is visible
-                    if (entry.target.classList.contains('skills-container')) {
-                        animateSkillBars();
-                    }
-                    
-                    // Add animation class to any observed element
-                    entry.target.classList.add('animated');
-                    
-                    // Stop observing after animation
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { 
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        });
+// Dark mode toggle (optional)
+const darkModeToggle = document.createElement('div');
+darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+darkModeToggle.classList.add('dark-mode-toggle');
+darkModeToggle.style.position = 'fixed';
+darkModeToggle.style.bottom = '20px';
+darkModeToggle.style.right = '20px';
+darkModeToggle.style.backgroundColor = 'var(--primary-color)';
+darkModeToggle.style.color = 'white';
+darkModeToggle.style.width = '50px';
+darkModeToggle.style.height = '50px';
+darkModeToggle.style.borderRadius = '50%';
+darkModeToggle.style.display = 'flex';
+darkModeToggle.style.alignItems = 'center';
+darkModeToggle.style.justifyContent = 'center';
+darkModeToggle.style.cursor = 'pointer';
+darkModeToggle.style.zIndex = '1000';
+darkModeToggle.style.boxShadow = '0 5px 15px rgba(0,0,0,0.2)';
 
-        // Observe all sections with animation
-        document.querySelectorAll('.section, .hero-content, .portfolio-item').forEach(section => {
-            observer.observe(section);
-        });
-    };
+document.body.appendChild(darkModeToggle);
 
-    // ========== Theme Toggle Functionality ==========
-    const initThemeToggle = () => {
-        const themeToggle = document.getElementById('theme-toggle');
-        if (!themeToggle) return;
-
-        // Check for saved theme preference or use system preference
-        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-        let currentTheme = localStorage.getItem('theme') || 
-                         (prefersDarkScheme.matches ? 'dark' : 'light');
-
-        // Apply the current theme
-        const applyTheme = (theme) => {
-            document.body.setAttribute('data-theme', theme);
-            localStorage.setItem('theme', theme);
-            
-            // Update toggle icon
-            if (themeToggle) {
-                themeToggle.innerHTML = theme === 'dark' 
-                    ? '<i class="fas fa-sun"></i>'
-                    : '<i class="fas fa-moon"></i>';
-            }
-        };
-
-        // Initialize theme
-        applyTheme(currentTheme);
-
-        // Toggle theme on button click
-        themeToggle.addEventListener('click', () => {
-            currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            applyTheme(currentTheme);
-        });
-    };
-
-    // ========== Back to Top Button ==========
-    const initBackToTop = () => {
-        const backToTopButton = document.querySelector('.back-to-top');
-        if (!backToTopButton) return;
-
-        window.addEventListener('scroll', () => {
-            backToTopButton.classList.toggle('active', window.scrollY > 300);
-        });
-
-        backToTopButton.addEventListener('click', (e) => {
-            e.preventDefault();
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-    };
-
-    // ========== Initialize All Functions ==========
-    const init = () => {
-        initMobileMenu();
-        initPortfolioFilter();
-        initContactForm();
-        initSmoothScrolling();
-        initScrollAnimations();
-        initThemeToggle();
-        initBackToTop();
-
-        // Set current year in footer
-        const yearElement = document.getElementById('current-year');
-        if (yearElement) {
-            yearElement.textContent = new Date().getFullYear();
-        }
-    };
-
-    // Start the application
-    init();
+darkModeToggle.addEventListener('click', () => {
+  document.body.classList.toggle('dark-mode');
+  
+  if (document.body.classList.contains('dark-mode')) {
+    darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+    // You would need to add dark mode styles in your CSS
+  } else {
+    darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+  }
 });
