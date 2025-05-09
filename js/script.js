@@ -90,7 +90,7 @@ const nodesData = {
             peers: 18,
             block: 5432198,
             rpc: "Enabled",
-            endpoint: "fiji.ditsyandrea.com",
+            endpoint: "fuji.ditsyandrea.com",
             since: "2022-04-05",
             uptime: "99.85%"
         }
@@ -98,9 +98,9 @@ const nodesData = {
 };
 
 // DOM Elements
-const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-const navLinks = document.querySelector('.nav-links');
-const contactForm = document.querySelector('.contact-form');
+const navbarToggle = document.querySelector('.navbar-toggle');
+const navbarMenu = document.querySelector('.navbar-menu');
+const contactForm = document.getElementById('contactForm');
 
 // Render Nodes
 function renderNodes() {
@@ -161,29 +161,10 @@ function createNodeCard(node) {
     return card;
 }
 
-// Animate Counting Numbers
-function animateCounters() {
-    const counters = document.querySelectorAll('[data-count]');
-    const speed = 200;
-    
-    counters.forEach(counter => {
-        const target = +counter.getAttribute('data-count');
-        const count = +counter.innerText;
-        const increment = target / speed;
-        
-        if (count < target) {
-            counter.innerText = Math.ceil(count + increment);
-            setTimeout(animateCounters, 1);
-        } else {
-            counter.innerText = target;
-        }
-    });
-}
-
 // Mobile Menu Toggle
-mobileMenuBtn.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-    mobileMenuBtn.classList.toggle('active');
+navbarToggle.addEventListener('click', () => {
+    navbarMenu.classList.toggle('active');
+    navbarToggle.classList.toggle('active');
 });
 
 // Smooth Scrolling for Navigation Links
@@ -200,8 +181,8 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         });
         
         // Close mobile menu if open
-        navLinks.classList.remove('active');
-        mobileMenuBtn.classList.remove('active');
+        navbarMenu.classList.remove('active');
+        navbarToggle.classList.remove('active');
     });
 });
 
@@ -236,5 +217,4 @@ window.addEventListener('scroll', () => {
 // Initialize on DOM Load
 document.addEventListener('DOMContentLoaded', function() {
     renderNodes();
-    animateCounters();
 });
