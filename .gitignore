@@ -1,0 +1,55 @@
+# File .gitignore untuk Portofolio Ditsy Andrea
+
+# Direktori dan file sistem
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# Direktori dependensi
+node_modules/
+bower_components/
+
+# File lingkungan
+.env
+.env.local
+.env.development
+.env.production
+
+# File build
+dist/
+build/
+.sass-cache/
+
+# File log
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# File editor/IDE
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# File sistem operasi
+ehthumbs.db
+[Tt]humbs.db
+
+# File testing
+coverage/
+
+# File package manager
+package-lock.json
+yarn.lock
+
+# File gambar yang belum dioptimalkan
+assets/images/original/
+
+# File backup
+*.bak
+*.tmp
