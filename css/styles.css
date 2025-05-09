@@ -510,3 +510,61 @@ a {
   font-size: 1.1rem;
   vertical-align: middle;
 }
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 1.5rem;
+}
+
+.skill-tag {
+  background-color: rgba(110, 58, 255, 0.1);
+  color: var(--primary-color);
+  padding: 0.5rem 1rem;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+/* Blockchain specific skill tags */
+.skill-tag.blockchain {
+  background-color: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+/* DevOps specific skill tags */
+.skill-tag.devops {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+/* Hover effects */
+.skill-tag:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.skill-tag.blockchain:hover {
+  background-color: rgba(16, 185, 129, 0.2);
+}
+
+.skill-tag.devops:hover {
+  background-color: rgba(239, 68, 68, 0.2);
+}
+
+/* Dark mode adjustments */
+[data-theme="dark"] .skill-tag {
+  background-color: rgba(110, 58, 255, 0.2);
+}
+
+[data-theme="dark"] .skill-tag.blockchain {
+  background-color: rgba(16, 185, 129, 0.2);
+}
+
+[data-theme="dark"] .skill-tag.devops {
+  background-color: rgba(239, 68, 68, 0.2);
+}
