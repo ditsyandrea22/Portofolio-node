@@ -90,7 +90,7 @@ const nodesData = {
             peers: 18,
             block: 5432198,
             rpc: "Enabled",
-            endpoint: "fuji.ditsyandrea.com",
+            endpoint: "fiji.ditsyandrea.com",
             since: "2022-04-05",
             uptime: "99.85%"
         }
@@ -100,8 +100,7 @@ const nodesData = {
 // DOM Elements
 const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
 const navLinks = document.querySelector('.nav-links');
-const backToTopBtn = document.querySelector('.back-to-top');
-const contactForm = document.getElementById('contact-form');
+const contactForm = document.querySelector('.contact-form');
 
 // Render Nodes
 function renderNodes() {
@@ -187,23 +186,6 @@ mobileMenuBtn.addEventListener('click', () => {
     mobileMenuBtn.classList.toggle('active');
 });
 
-// Back to Top Button
-window.addEventListener('scroll', () => {
-    if (window.pageYOffset > 300) {
-        backToTopBtn.classList.add('visible');
-    } else {
-        backToTopBtn.classList.remove('visible');
-    }
-});
-
-backToTopBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
-});
-
 // Smooth Scrolling for Navigation Links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
@@ -241,18 +223,18 @@ contactForm.addEventListener('submit', function(e) {
     this.reset();
 });
 
+// Navbar Scroll Effect
+window.addEventListener('scroll', () => {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+});
+
 // Initialize on DOM Load
 document.addEventListener('DOMContentLoaded', function() {
     renderNodes();
     animateCounters();
-    
-    // Add scroll event for navigation
-    window.addEventListener('scroll', () => {
-        const nav = document.querySelector('.glass-nav');
-        if (window.scrollY > 50) {
-            nav.classList.add('scrolled');
-        } else {
-            nav.classList.remove('scrolled');
-        }
-    });
 });
