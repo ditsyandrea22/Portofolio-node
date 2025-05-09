@@ -1,150 +1,355 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Professional Portfolio</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio-node | A Node.js Portfolio Template</title>
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --primary-dark: #4338ca;
+            --secondary: #10b981;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #94a3b8;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+        
+        .buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+        }
+        
+        .btn {
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background-color: white;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+        
+        .btn-secondary:hover {
+            background-color: rgba(79, 70, 229, 0.05);
+            transform: translateY(-2px);
+        }
+        
+        .features {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 60px;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background-color: var(--light);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        }
+        
+        .feature-icon {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .feature-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .feature-desc {
+            color: var(--gray);
+        }
+        
+        .installation {
+            padding: 80px 0;
+            background-color: var(--light);
+        }
+        
+        .code-block {
+            background-color: var(--dark);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Fira Code', monospace;
+            overflow-x: auto;
+            margin: 30px 0;
+        }
+        
+        .code-block code {
+            display: block;
+            white-space: pre;
+        }
+        
+        .highlight {
+            color: var(--secondary);
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .copyright {
+            color: var(--gray);
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-  <!-- Header Navigation -->
-  <header class="header">
-    <div class="logo">Portfolio</div>
-    <nav class="navbar">
-      <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact" class="cta-button">Contact</a></li>
-      </ul>
-      <div class="hamburger">
-        <div class="line"></div>
-        <div class="line"></div>
-        <div class="line"></div>
-      </div>
-    </nav>
-  </header>
-
-  <!-- Hero Section -->
-  <section id="home" class="hero">
-    <div class="hero-content">
-      <h1>Hi, I'm <span>Ditsy Andrea</span></h1>
-      <p>Web Developer & Designer</p>
-      <div class="hero-buttons">
-        <a href="#projects" class="cta-button">View My Work</a>
-        <a href="#contact" class="cta-button secondary">Hire Me</a>
-      </div>
-    </div>
-    <div class="hero-image">
-      <img src="https://via.placeholder.com/400x400" alt="Profile Image">
-    </div>
-  </section>
-
-  <!-- Services Section -->
-  <section id="services" class="section">
-    <h2 class="section-title">My Services</h2>
-    <div class="services-grid">
-      <div class="service-card">
-        <i class="fas fa-code"></i>
-        <h3>Web Development</h3>
-        <p>Custom website development tailored to your business needs.</p>
-      </div>
-      <div class="service-card">
-        <i class="fas fa-paint-brush"></i>
-        <h3>UI/UX Design</h3>
-        <p>Beautiful and intuitive user interfaces for better engagement.</p>
-      </div>
-      <div class="service-card">
-        <i class="fas fa-mobile-alt"></i>
-        <h3>Responsive Design</h3>
-        <p>Websites that look great on all devices and screen sizes.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Projects Section -->
-  <section id="projects" class="section">
-    <h2 class="section-title">Featured Projects</h2>
-    <div class="projects-grid">
-      <div class="project-card">
-        <img src="https://via.placeholder.com/600x400" alt="Project 1">
-        <div class="project-info">
-          <h3>E-commerce Website</h3>
-          <p>Full-featured online store with payment integration.</p>
-          <a href="#" class="project-link">View Project</a>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">Portofolio-node</a>
+                <div class="nav-links">
+                    <a href="#features">Features</a>
+                    <a href="#installation">Installation</a>
+                    <a href="https://github.com/ditsyandrea22/Portofolio-node" target="_blank">GitHub</a>
+                </div>
+            </nav>
         </div>
-      </div>
-      <div class="project-card">
-        <img src="https://via.placeholder.com/600x400" alt="Project 2">
-        <div class="project-info">
-          <h3>Portfolio Template</h3>
-          <p>Clean and modern portfolio design for creatives.</p>
-          <a href="#" class="project-link">View Project</a>
+    </header>
+    
+    <section class="hero">
+        <div class="container">
+            <h1>Build Your Developer Portfolio with Node.js</h1>
+            <p>A modern, customizable portfolio template built with Node.js, Express, and EJS to showcase your projects and skills.</p>
+            <div class="buttons">
+                <a href="#installation" class="btn btn-primary">Get Started</a>
+                <a href="https://github.com/ditsyandrea22/Portofolio-node" class="btn btn-secondary">View on GitHub</a>
+            </div>
         </div>
-      </div>
-      <div class="project-card">
-        <img src="https://via.placeholder.com/600x400" alt="Project 3">
-        <div class="project-info">
-          <h3>Mobile App UI</h3>
-          <p>User interface design for fitness tracking application.</p>
-          <a href="#" class="project-link">View Project</a>
+    </section>
+    
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">Why Choose Portofolio-node?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 class="feature-title">Fast Setup</h3>
+                    <p class="feature-desc">Get your portfolio up and running in minutes with minimal configuration required.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="feature-title">Responsive Design</h3>
+                    <p class="feature-desc">Looks great on all devices from desktop to mobile with a clean, modern layout.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3 class="feature-title">Customizable</h3>
+                    <p class="feature-desc">Easily customize colors, content, and layout to match your personal brand.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <h3 class="feature-title">Project Showcase</h3>
+                    <p class="feature-desc">Highlight your best work with dedicated project pages and filtering options.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3 class="feature-title">Node.js Backend</h3>
+                    <p class="feature-desc">Built with Express for easy deployment and potential backend integrations.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-code-branch"></i>
+                    </div>
+                    <h3 class="feature-title">Open Source</h3>
+                    <p class="feature-desc">MIT licensed - use it for free and contribute to make it better for everyone.</p>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- About Section -->
-  <section id="about" class="section">
-    <h2 class="section-title">About Me</h2>
-    <div class="about-content">
-      <div class="about-text">
-        <h3>Professional Web Developer</h3>
-        <p>With over 3 years of experience in web development and design, I create digital solutions that help businesses grow and succeed online.</p>
-        <p>My expertise includes front-end development, responsive design, and user experience optimization.</p>
-        <div class="skills">
-          <span>HTML/CSS</span>
-          <span>JavaScript</span>
-          <span>React</span>
-          <span>Node.js</span>
-          <span>UI/UX</span>
+    </section>
+    
+    <section class="installation" id="installation">
+        <div class="container">
+            <h2 class="section-title">Quick Installation</h2>
+            <p>Get your portfolio up and running in just a few commands:</p>
+            
+            <div class="code-block">
+                <code>
+                    <span class="highlight"># Clone the repository</span>
+                    git clone https://github.com/ditsyandrea22/Portofolio-node.git
+                    
+                    <span class="highlight"># Navigate to the project directory</span>
+                    cd Portofolio-node
+                    
+                    <span class="highlight"># Install dependencies</span>
+                    npm install
+                    
+                    <span class="highlight"># Configure your settings</span>
+                    <span class="highlight"># Edit the config.js file with your information</span>
+                    
+                    <span class="highlight"># Start the development server</span>
+                    npm start
+                    
+                    <span class="highlight"># Open your browser to</span>
+                    http://localhost:3000
+                </code>
+            </div>
+            
+            <p>For detailed documentation, please visit the <a href="https://github.com/ditsyandrea22/Portofolio-node" target="_blank">GitHub repository</a>.</p>
         </div>
-      </div>
-      <div class="about-image">
-        <img src="https://via.placeholder.com/400x500" alt="About Me">
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="section">
-    <h2 class="section-title">Get In Touch</h2>
-    <div class="contact-container">
-      <div class="contact-info">
-        <h3>Contact Information</h3>
-        <p><i class="fas fa-envelope"></i> email@example.com</p>
-        <p><i class="fas fa-phone"></i> +123 456 7890</p>
-        <div class="social-links">
-          <a href="#"><i class="fab fa-github"></i></a>
-          <a href="#"><i class="fab fa-linkedin"></i></a>
-          <a href="#"><i class="fab fa-twitter"></i></a>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="https://github.com/ditsyandrea22/Portofolio-node" target="_blank">GitHub</a>
+                <a href="https://github.com/ditsyandrea22/Portofolio-node/issues" target="_blank">Issues</a>
+                <a href="https://github.com/ditsyandrea22/Portofolio-node/blob/main/LICENSE" target="_blank">License</a>
+            </div>
+            <p class="copyright">© 2023 Portofolio-node. Created by ditsyandrea22.</p>
         </div>
-      </div>
-      <form class="contact-form">
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Your Email" required>
-        <textarea placeholder="Your Message" required></textarea>
-        <button type="submit" class="cta-button">Send Message</button>
-      </form>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <p>&copy; 2023 My Portfolio. All rights reserved.</p>
-  </footer>
-
-  <script src="script.js"></script>
+    </footer>
 </body>
 </html>
