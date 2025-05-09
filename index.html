@@ -300,80 +300,79 @@
             color: var(--gray);
         }
         
-        /* Installation Section */
-        .installation {
+        /* About Me Section */
+        .about {
             padding: 6rem 0;
             background-color: var(--light);
         }
         
-        .installation-steps {
-            max-width: 800px;
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            max-width: 1000px;
             margin: 0 auto;
         }
         
-        .step {
-            margin-bottom: 2rem;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.6s ease;
+        .about-image {
+            flex: 1;
+            position: relative;
+            border-radius: var(--rounded-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            min-width: 300px;
         }
         
-        .step.visible {
-            opacity: 1;
-            transform: translateY(0);
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
         }
         
-        .step-title {
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+        
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+            line-height: 1.7;
+        }
+        
+        .skills {
+            margin-top: 2rem;
+        }
+        
+        .skills h4 {
             font-size: 1.25rem;
-            font-weight: 600;
             margin-bottom: 1rem;
             color: var(--primary);
+        }
+        
+        .skills-list {
             display: flex;
-            align-items: center;
+            flex-wrap: wrap;
             gap: 0.5rem;
         }
         
-        .step-title i {
-            font-size: 1.5rem;
-        }
-        
-        .code-block {
-            background-color: var(--darker);
+        .skill-tag {
+            background-color: var(--primary-light);
             color: white;
-            padding: 1.5rem;
+            padding: 0.5rem 1rem;
             border-radius: var(--rounded-lg);
-            font-family: 'Fira Code', monospace;
-            overflow-x: auto;
-            margin: 1.5rem 0;
-            box-shadow: var(--shadow-md);
-            position: relative;
-        }
-        
-        .code-block::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(79, 70, 229, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%);
-            border-radius: var(--rounded-lg);
-            pointer-events: none;
-        }
-        
-        .code-block code {
-            display: block;
-            white-space: pre;
-            line-height: 1.5;
-        }
-        
-        .highlight {
-            color: var(--secondary);
-        }
-        
-        .comment {
-            color: var(--gray);
-            font-style: italic;
+            font-size: 0.875rem;
+            font-weight: 500;
         }
         
         /* Demo Section */
@@ -538,6 +537,18 @@
             .section-title {
                 font-size: 2rem;
             }
+            
+            .about-content {
+                flex-direction: column;
+                gap: 2rem;
+            }
+            
+            .about-image {
+                min-width: auto;
+                width: 100%;
+                max-width: 400px;
+                margin: 0 auto;
+            }
         }
         
         /* Mobile Menu */
@@ -620,7 +631,7 @@
                 </a>
                 <div class="nav-links">
                     <a href="#features">Features</a>
-                    <a href="#installation">Installation</a>
+                    <a href="#about">About</a>
                     <a href="#demo">Demo</a>
                     <a href="https://github.com/ditsyandrea22/Portofolio-node" target="_blank">GitHub</a>
                 </div>
@@ -645,7 +656,7 @@
         </div>
         <div class="mobile-menu-links">
             <a href="#features" class="mobile-menu-link">Features</a>
-            <a href="#installation" class="mobile-menu-link">Installation</a>
+            <a href="#about" class="mobile-menu-link">About</a>
             <a href="#demo" class="mobile-menu-link">Demo</a>
             <a href="https://github.com/ditsyandrea22/Portofolio-node" class="mobile-menu-link" target="_blank">GitHub</a>
         </div>
@@ -657,8 +668,8 @@
                 <h1>Build Your Developer Portfolio with Node.js</h1>
                 <p>A modern, customizable portfolio template built with Node.js, Express, and EJS to showcase your projects and skills to the world.</p>
                 <div class="buttons">
-                    <a href="#installation" class="btn btn-primary">
-                        <i class="fas fa-rocket"></i> Get Started
+                    <a href="#about" class="btn btn-primary">
+                        <i class="fas fa-user"></i> About Me
                     </a>
                     <a href="https://github.com/ditsyandrea22/Portofolio-node" class="btn btn-secondary" target="_blank">
                         <i class="fab fa-github"></i> View on GitHub
@@ -723,75 +734,36 @@
         </div>
     </section>
     
-    <section class="installation" id="installation">
+    <section class="about" id="about">
         <div class="container">
-            <h2 class="section-title">Quick Installation</h2>
-            <div class="installation-steps">
-                <div class="step">
-                    <h3 class="step-title">
-                        <i class="fas fa-download"></i> Clone the repository
-                    </h3>
-                    <div class="code-block">
-                        <code>
-                            git clone https://github.com/ditsyandrea22/Portofolio-node.git
-                        </code>
-                    </div>
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://via.placeholder.com/400x500/4f46e5/ffffff?text=Your+Photo" alt="Profile Photo">
                 </div>
-                
-                <div class="step">
-                    <h3 class="step-title">
-                        <i class="fas fa-folder-open"></i> Navigate to project
-                    </h3>
-                    <div class="code-block">
-                        <code>
-                            cd Portofolio-node
-                        </code>
-                    </div>
-                </div>
-                
-                <div class="step">
-                    <h3 class="step-title">
-                        <i class="fas fa-cogs"></i> Install dependencies
-                    </h3>
-                    <div class="code-block">
-                        <code>
-                            npm install
-                            <span class="comment"># or yarn install</span>
-                        </code>
-                    </div>
-                </div>
-                
-                <div class="step">
-                    <h3 class="step-title">
-                        <i class="fas fa-edit"></i> Configure your settings
-                    </h3>
-                    <div class="code-block">
-                        <code>
-                            <span class="comment"># Edit config.js with your information</span>
-                            nano config.js
-                            <span class="comment"># or open in your favorite editor</span>
-                        </code>
-                    </div>
-                </div>
-                
-                <div class="step">
-                    <h3 class="step-title">
-                        <i class="fas fa-play"></i> Start the server
-                    </h3>
-                    <div class="code-block">
-                        <code>
-                            npm start
-                            <span class="comment"># or yarn start</span>
-                            
-                            <span class="highlight">Server running on http://localhost:3000</span>
-                        </code>
+                <div class="about-text">
+                    <h3>Hi, I'm [ditsy andrea]</h3>
+                    <p>I'm a passionate full-stack developer with expertise in Node.js, React, and modern web technologies. With over [X] years of experience, I've helped numerous clients bring their digital ideas to life.</p>
+                    <p>My journey in web development began when [your story about how you got into coding]. Since then, I've worked on projects ranging from small business websites to large-scale enterprise applications.</p>
+                    <p>When I'm not coding, you can find me [your hobbies/interests outside of work]. I believe in continuous learning and sharing knowledge with the developer community.</p>
+                    
+                    <div class="skills">
+                        <h4>My Skills</h4>
+                        <div class="skills-list">
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">Express</span>
+                            <span class="skill-tag">React</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">TypeScript</span>
+                            <span class="skill-tag">MongoDB</span>
+                            <span class="skill-tag">PostgreSQL</span>
+                            <span class="skill-tag">HTML/CSS</span>
+                            <span class="skill-tag">Docker</span>
+                            <span class="skill-tag">AWS</span>
+                        </div>
                     </div>
                 </div>
             </div>
-            
-            <p style="text-align: center; margin-top: 2rem;">
-                For detailed documentation, please visit the <a href="https://github.com/ditsyandrea22/Portofolio-node" target="_blank">GitHub repository</a>.
-            </p>
         </div>
     </section>
     
@@ -830,7 +802,7 @@
                 
                 <div class="footer-links">
                     <a href="#features">Features</a>
-                    <a href="#installation">Installation</a>
+                    <a href="#about">About</a>
                     <a href="#demo">Demo</a>
                     <a href="https://github.com/ditsyandrea22/Portofolio-node" target="_blank">GitHub</a>
                     <a href="https://github.com/ditsyandrea22/Portofolio-node/issues" target="_blank">Issues</a>
@@ -922,19 +894,7 @@
             
             // Animation on scroll
             const animateOnScroll = function() {
-                const steps = document.querySelectorAll('.step');
                 const demoImage = document.getElementById('demoImage');
-                
-                steps.forEach((step, index) => {
-                    const stepPosition = step.getBoundingClientRect().top;
-                    const screenPosition = window.innerHeight / 1.3;
-                    
-                    if (stepPosition < screenPosition) {
-                        setTimeout(() => {
-                            step.classList.add('visible');
-                        }, index * 200);
-                    }
-                });
                 
                 const demoImagePosition = demoImage.getBoundingClientRect().top;
                 const demoImageScreenPosition = window.innerHeight / 1.5;
@@ -946,28 +906,6 @@
             
             window.addEventListener('scroll', animateOnScroll);
             animateOnScroll(); // Run once on page load
-            
-            // Typewriter effect for hero (optional)
-            const typewriter = function() {
-                const heroTitle = document.querySelector('.hero h1');
-                const originalText = heroTitle.textContent;
-                let i = 0;
-                
-                heroTitle.textContent = '';
-                
-                function type() {
-                    if (i < originalText.length) {
-                        heroTitle.textContent += originalText.charAt(i);
-                        i++;
-                        setTimeout(type, 50);
-                    }
-                }
-                
-                setTimeout(type, 1000);
-            };
-            
-            // Uncomment to enable typewriter effect
-            // typewriter();
         });
     </script>
 </body>
