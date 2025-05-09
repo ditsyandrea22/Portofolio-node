@@ -378,40 +378,6 @@
             font-weight: 500;
         }
         
-        /* Demo Section */
-        .demo {
-            padding: 6rem 0;
-            background-color: var(--lighter);
-            text-align: center;
-        }
-        
-        .demo-container {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        
-        .demo-image {
-            margin-top: 3rem;
-            border-radius: var(--rounded-lg);
-            overflow: hidden;
-            box-shadow: var(--shadow-xl);
-            border: 1px solid var(--gray-light);
-            transition: all 0.3s;
-            opacity: 0;
-            transform: scale(0.95);
-        }
-        
-        .demo-image.visible {
-            opacity: 1;
-            transform: scale(1);
-        }
-        
-        .demo-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-        
         /* Footer */
         footer {
             background-color: var(--darker);
@@ -635,7 +601,6 @@
                 <div class="nav-links">
                     <a href="#features">Features</a>
                     <a href="#about">About</a>
-                    <a href="#demo">Demo</a>
                     <a href="https://github.com/ditsyandrea22/Portofolio-node" target="_blank">GitHub</a>
                 </div>
                 <button class="mobile-menu-btn" id="mobileMenuBtn">
@@ -660,7 +625,6 @@
         <div class="mobile-menu-links">
             <a href="#features" class="mobile-menu-link">Features</a>
             <a href="#about" class="mobile-menu-link">About</a>
-            <a href="#demo" class="mobile-menu-link">Demo</a>
             <a href="https://github.com/ditsyandrea22/Portofolio-node" class="mobile-menu-link" target="_blank">GitHub</a>
         </div>
     </div>
@@ -668,14 +632,14 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>Build Your Developer Portfolio with Node.js</h1>
-                <p>A modern, customizable portfolio template built with Node.js, Express, and EJS to showcase your projects and skills to the world.</p>
+                <h1>Welcome to My Portfolio</h1>
+                <p>A showcase of my skills, projects, and professional journey as a developer.</p>
                 <div class="buttons">
                     <a href="#about" class="btn btn-primary">
                         <i class="fas fa-user"></i> About Me
                     </a>
                     <a href="https://github.com/ditsyandrea22/Portofolio-node" class="btn btn-secondary" target="_blank">
-                        <i class="fab fa-github"></i> View on GitHub
+                        <i class="fab fa-github"></i> View Projects
                     </a>
                 </div>
             </div>
@@ -684,14 +648,14 @@
     
     <section class="features" id="features">
         <div class="container">
-            <h2 class="section-title">Why Choose Portofolio-node?</h2>
+            <h2 class="section-title">My Expertise</h2>
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-bolt"></i>
                     </div>
-                    <h3 class="feature-title">Fast Setup</h3>
-                    <p class="feature-desc">Get your portfolio up and running in minutes with minimal configuration required. Perfect for developers who want to showcase their work quickly.</p>
+                    <h3 class="feature-title">Fast Development</h3>
+                    <p class="feature-desc">I build efficient, high-performance applications with clean code and modern best practices.</p>
                 </div>
                 
                 <div class="feature-card">
@@ -699,39 +663,39 @@
                         <i class="fas fa-mobile-alt"></i>
                     </div>
                     <h3 class="feature-title">Responsive Design</h3>
-                    <p class="feature-desc">Looks great on all devices from desktop to mobile with a clean, modern layout that adapts to any screen size.</p>
+                    <p class="feature-desc">Creating applications that work flawlessly across all devices and screen sizes.</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-palette"></i>
                     </div>
-                    <h3 class="feature-title">Customizable</h3>
-                    <p class="feature-desc">Easily customize colors, content, and layout to match your personal brand through simple configuration files.</p>
+                    <h3 class="feature-title">UI/UX Focus</h3>
+                    <p class="feature-desc">Designing intuitive user interfaces with exceptional user experience in mind.</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-project-diagram"></i>
                     </div>
-                    <h3 class="feature-title">Project Showcase</h3>
-                    <p class="feature-desc">Highlight your best work with dedicated project pages, filtering options, and beautiful project cards.</p>
+                    <h3 class="feature-title">Project Management</h3>
+                    <p class="feature-desc">Experience leading projects from concept to deployment with agile methodologies.</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-server"></i>
                     </div>
-                    <h3 class="feature-title">Node.js Backend</h3>
-                    <p class="feature-desc">Built with Express for easy deployment and potential backend integrations. Add a blog or contact form easily.</p>
+                    <h3 class="feature-title">Backend Development</h3>
+                    <p class="feature-desc">Building robust APIs and server-side applications with Node.js and Express.</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-code-branch"></i>
                     </div>
-                    <h3 class="feature-title">Open Source</h3>
-                    <p class="feature-desc">MIT licensed - use it for free and contribute to make it better for everyone. Community-driven improvements.</p>
+                    <h3 class="feature-title">Collaboration</h3>
+                    <p class="feature-desc">Experienced in team environments with Git version control and code reviews.</p>
                 </div>
             </div>
         </div>
@@ -769,31 +733,6 @@
         </div>
     </section>
     
-    <section class="demo" id="demo">
-        <div class="container">
-            <h2 class="section-title">See It In Action</h2>
-            <p style="max-width: 600px; margin: 0 auto 1rem; color: var(--gray);">
-                Check out the live demo or screenshots of the Portofolio-node template.
-            </p>
-            
-            <div class="demo-container">
-                <div class="demo-image" id="demoImage">
-                    <!-- Replace with actual screenshot of your portfolio -->
-                    <img src="https://raw.githubusercontent.com/ditsyandrea22/Portofolio-node/main/screenshot.png" alt="Portofolio-node Demo">
-                </div>
-                
-                <div style="margin-top: 2rem;">
-                    <a href="https://portofolio-node-demo.vercel.app" class="btn btn-primary" style="margin-right: 1rem;">
-                        <i class="fas fa-external-link-alt"></i> Live Demo
-                    </a>
-                    <a href="https://github.com/ditsyandrea22/Portofolio-node" class="btn btn-secondary" target="_blank">
-                        <i class="fab fa-github"></i> View Source
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-    
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -805,7 +744,6 @@
                 <div class="footer-links">
                     <a href="#features">Features</a>
                     <a href="#about">About</a>
-                    <a href="#demo">Demo</a>
                     <a href="https://github.com/ditsyandrea22/Portofolio-node" target="_blank">GitHub</a>
                     <a href="https://github.com/ditsyandrea22/Portofolio-node/issues" target="_blank">Issues</a>
                     <a href="https://github.com/ditsyandrea22/Portofolio-node/blob/main/LICENSE" target="_blank">License</a>
@@ -893,21 +831,6 @@
                     }
                 });
             });
-            
-            // Animation on scroll
-            const animateOnScroll = function() {
-                const demoImage = document.getElementById('demoImage');
-                
-                const demoImagePosition = demoImage.getBoundingClientRect().top;
-                const demoImageScreenPosition = window.innerHeight / 1.5;
-                
-                if (demoImagePosition < demoImageScreenPosition) {
-                    demoImage.classList.add('visible');
-                }
-            };
-            
-            window.addEventListener('scroll', animateOnScroll);
-            animateOnScroll(); // Run once on page load
         });
     </script>
 </body>
