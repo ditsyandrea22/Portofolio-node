@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="A modern Node.js portfolio template for developers to showcase their projects and skills">
-    <meta name="keywords" content="portfolio, node.js, developer portfolio, web developer">
+    <meta name="keywords" content="portfolio, node.js, developer portfolio, web developer, blockchain, node operator">
     <meta name="author" content="ditsyandrea">
-    <title>Portofolio-node | A Node.js Portfolio Template</title>
+    <title>Portofolio-node | Full-Stack Developer & Node Operator</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -397,6 +397,52 @@
             opacity: 0.9;
         }
         
+        /* Node Experience Section */
+        .node-experience {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background-color: rgba(110, 58, 255, 0.05);
+            border-radius: 10px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .node-experience h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .node-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .node-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 0.8rem;
+            background-color: rgba(110, 58, 255, 0.1);
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .node-item:hover {
+            background-color: rgba(110, 58, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .node-item i {
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+        
+        /* Skills Section */
         .skills {
             margin-top: 2rem;
         }
@@ -420,6 +466,29 @@
             border-radius: var(--rounded-lg);
             font-size: 0.875rem;
             font-weight: 500;
+            transition: all 0.2s;
+        }
+        
+        .skill-tag:hover {
+            transform: translateY(-2px);
+        }
+        
+        .skill-tag.blockchain {
+            background-color: rgba(16, 185, 129, 0.1);
+            color: #10b981;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .skill-tag.devops {
+            background-color: rgba(239, 68, 68, 0.1);
+            color: #ef4444;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+
+        .skill-tag.infrastructure {
+            background-color: rgba(59, 130, 246, 0.1);
+            color: #3b82f6;
+            border: 1px solid rgba(59, 130, 246, 0.3);
         }
         
         /* Footer */
@@ -475,11 +544,19 @@
             color: white;
             font-size: 1.25rem;
             transition: all 0.2s;
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(255, 255, 255, 0.1);
         }
         
         .social-links a:hover {
             color: var(--secondary);
-            transform: translateY(-2px);
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
         }
         
         .copyright {
@@ -635,6 +712,10 @@
                 max-width: 400px;
                 margin: 0 auto;
             }
+            
+            .node-list {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -647,8 +728,9 @@
                     Portofolio-node
                 </a>
                 <div class="nav-links">
-                    <a href="#features">Features</a>
+                    <a href="#features">Expertise</a>
                     <a href="#about">About</a>
+                    <a href="#projects">Projects</a>
                     <a href="https://github.com/ditsyandrea22/Portofolio-node" target="_blank">GitHub</a>
                 </div>
                 <div class="nav-actions">
@@ -679,8 +761,9 @@
             </button>
         </div>
         <div class="mobile-menu-links">
-            <a href="#features" class="mobile-menu-link">Features</a>
+            <a href="#features" class="mobile-menu-link">Expertise</a>
             <a href="#about" class="mobile-menu-link">About</a>
+            <a href="#projects" class="mobile-menu-link">Projects</a>
             <a href="https://github.com/ditsyandrea22/Portofolio-node" class="mobile-menu-link" target="_blank">GitHub</a>
         </div>
     </div>
@@ -688,14 +771,14 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>Welcome to My Portfolio</h1>
-                <p>A showcase of my skills, projects, and professional journey as a developer.</p>
+                <h1>Full-Stack Developer & Blockchain Specialist</h1>
+                <p>Building scalable web applications and robust blockchain infrastructure with 99.9%+ uptime across multiple networks.</p>
                 <div class="buttons">
                     <a href="#about" class="btn btn-primary">
                         <i class="fas fa-user"></i> About Me
                     </a>
-                    <a href="https://github.com/ditsyandrea22/Portofolio-node" class="btn btn-secondary" target="_blank">
-                        <i class="fab fa-github"></i> View Projects
+                    <a href="#projects" class="btn btn-secondary">
+                        <i class="fas fa-project-diagram"></i> View Projects
                     </a>
                 </div>
             </div>
@@ -708,50 +791,50 @@
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-bolt"></i>
+                        <i class="fas fa-server"></i>
                     </div>
-                    <h3 class="feature-title">Fast Development</h3>
-                    <p class="feature-desc">I build efficient, high-performance applications with clean code and modern best practices.</p>
+                    <h3 class="feature-title">Node Operations</h3>
+                    <p class="feature-desc">Specializing in deployment, maintenance, and optimization of blockchain nodes across multiple networks.</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-mobile-alt"></i>
+                        <i class="fas fa-code"></i>
                     </div>
-                    <h3 class="feature-title">Responsive Design</h3>
-                    <p class="feature-desc">Creating applications that work flawlessly across all devices and screen sizes.</p>
+                    <h3 class="feature-title">Web Development</h3>
+                    <p class="feature-desc">Building efficient, high-performance applications with modern JavaScript frameworks.</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-palette"></i>
+                        <i class="fab fa-ethereum"></i>
                     </div>
-                    <h3 class="feature-title">UI/UX Focus</h3>
-                    <p class="feature-desc">Designing intuitive user interfaces with exceptional user experience in mind.</p>
+                    <h3 class="feature-title">Blockchain</h3>
+                    <p class="feature-desc">Developing and interacting with smart contracts and decentralized applications.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3 class="feature-title">DevOps</h3>
+                    <p class="feature-desc">Implementing CI/CD pipelines and infrastructure as code for reliable deployments.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="feature-title">Security</h3>
+                    <p class="feature-desc">Hardening systems and implementing best practices for secure node operations.</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-project-diagram"></i>
                     </div>
-                    <h3 class="feature-title">Project Management</h3>
-                    <p class="feature-desc">Experience leading projects from concept to deployment with agile methodologies.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-server"></i>
-                    </div>
-                    <h3 class="feature-title">Backend Development</h3>
-                    <p class="feature-desc">Building robust APIs and server-side applications with Node.js and Express.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-code-branch"></i>
-                    </div>
-                    <h3 class="feature-title">Collaboration</h3>
-                    <p class="feature-desc">Experienced in team environments with Git version control and code reviews.</p>
+                    <h3 class="feature-title">Architecture</h3>
+                    <p class="feature-desc">Designing scalable systems with microservices and distributed architectures.</p>
                 </div>
             </div>
         </div>
@@ -766,45 +849,101 @@
                 </div>
                 <div class="about-text">
                     <h3>Hi, I'm ditsyandrea</h3>
-                    <p>I'm a passionate developer with expertise in Node.js, JavaScript, and modern web technologies. I created this portfolio template to help other developers showcase their work effectively.</p>
-                    <p>My journey in web development began when I discovered the power of coding to create solutions. Since then, I've been dedicated to building tools and applications that make a difference.</p>
-                    <p>I have extensive experience running and maintaining blockchain nodes, including setup, monitoring, and optimization of validator and RPC nodes across multiple networks.</p>
-                    <p>When I'm not coding, you can find me sharing knowledge on <a href="https://x.com/Crypto_ditsy" target="_blank">Twitter</a> or contributing to open-source projects. I believe in continuous learning and community collaboration.</p>
+                    <p>I'm a full-stack developer and blockchain infrastructure specialist with expertise in Node.js, JavaScript, and decentralized systems. I bridge the gap between application development and blockchain infrastructure.</p>
+                    
+                    <div class="node-experience">
+                        <h4><i class="fas fa-server"></i> Blockchain Node Operations</h4>
+                        <div class="node-list">
+                            <div class="node-item">
+                                <i class="fab fa-ethereum"></i>
+                                <span>Ethereum (Mainnet/Testnets)</span>
+                            </div>
+                            <div class="node-item">
+                                <i class="fas fa-link"></i>
+                                <span>Polygon Validator Nodes</span>
+                            </div>
+                            <div class="node-item">
+                                <i class="fas fa-bolt"></i>
+                                <span>Solana RPC Nodes</span>
+                            </div>
+                            <div class="node-item">
+                                <i class="fas fa-mountain"></i>
+                                <span>Avalanche Archival Nodes</span>
+                            </div>
+                        </div>
+                        <p>I specialize in deploying, maintaining, and optimizing blockchain infrastructure including validators, RPC endpoints, and archival nodes with 99.9%+ uptime across multiple networks.</p>
+                    </div>
+                    
+                    <p>My technical journey began with web development and evolved into blockchain infrastructure, where I combine my passion for distributed systems with operational excellence.</p>
                     
                     <div class="skills">
-                        <h4>My Skills</h4>
+                        <h4>Technical Skills</h4>
                         <div class="skills-list">
-                            <!-- Existing skills -->
+                            <!-- Development -->
                             <span class="skill-tag">Node.js</span>
-                            <span class="skill-tag">Express</span>
-                            <span class="skill-tag">JavaScript</span>
-                            <span class="skill-tag">HTML/CSS</span>
-                            <span class="skill-tag">Git</span>
-                            <span class="skill-tag">REST APIs</span>
-                            <span class="skill-tag">MongoDB</span>
-                            <span class="skill-tag">Web Development</span>
+                            <span class="skill-tag">TypeScript</span>
+                            <span class="skill-tag">React</span>
+                            <span class="skill-tag">GraphQL</span>
                             
-                            <!-- New Blockchain skills -->
-                            <span class="skill-tag blockchain">Blockchain Nodes</span>
-                            <span class="skill-tag blockchain">Ethereum</span>
-                            <span class="skill-tag blockchain">Solana</span>
-                            <span class="skill-tag blockchain">Polygon</span>
-                            <span class="skill-tag blockchain">Avalanche</span>
-                            <span class="skill-tag blockchain">Smart Contracts</span>
+                            <!-- Blockchain -->
+                            <span class="skill-tag blockchain">Solidity</span>
                             <span class="skill-tag blockchain">Web3.js</span>
                             <span class="skill-tag blockchain">Ethers.js</span>
-                            <span class="skill-tag blockchain">RPC Nodes</span>
-                            <span class="skill-tag blockchain">Validator Nodes</span>
+                            <span class="skill-tag blockchain">Hardhat</span>
                             
-                            <!-- New DevOps skills -->
+                            <!-- Infrastructure -->
                             <span class="skill-tag devops">Docker</span>
                             <span class="skill-tag devops">Kubernetes</span>
-                            <span class="skill-tag devops">CI/CD</span>
-                            <span class="skill-tag devops">AWS</span>
                             <span class="skill-tag devops">Terraform</span>
-                            <span class="skill-tag devops">Node Monitoring</span>
+                            <span class="skill-tag devops">Prometheus</span>
+                            
+                            <!-- Node Operations -->
+                            <span class="skill-tag infrastructure">Geth</span>
+                            <span class="skill-tag infrastructure">Prysm</span>
+                            <span class="skill-tag infrastructure">Lighthouse</span>
+                            <span class="skill-tag infrastructure">Ansible</span>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="features" id="projects">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-link"></i>
+                    </div>
+                    <h3 class="feature-title">Polygon Node Cluster</h3>
+                    <p class="feature-desc">Highly available validator node setup with automated failover and monitoring.</p>
+                    <a href="#" class="btn btn-secondary" style="margin-top: 1rem;">
+                        <i class="fas fa-external-link-alt"></i> Learn More
+                    </a>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fab fa-ethereum"></i>
+                    </div>
+                    <h3 class="feature-title">Ethereum RPC Service</h3>
+                    <p class="feature-desc">Scalable RPC endpoint service with load balancing and caching.</p>
+                    <a href="#" class="btn btn-secondary" style="margin-top: 1rem;">
+                        <i class="fas fa-external-link-alt"></i> Learn More
+                    </a>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <h3 class="feature-title">Node Monitoring Dashboard</h3>
+                    <p class="feature-desc">Real-time monitoring solution for blockchain node operators.</p>
+                    <a href="#" class="btn btn-secondary" style="margin-top: 1rem;">
+                        <i class="fas fa-external-link-alt"></i> Learn More
+                    </a>
                 </div>
             </div>
         </div>
@@ -819,8 +958,9 @@
                 </a>
                 
                 <div class="footer-links">
-                    <a href="#features">Features</a>
+                    <a href="#features">Expertise</a>
                     <a href="#about">About</a>
+                    <a href="#projects">Projects</a>
                     <a href="https://github.com/ditsyandrea22/Portofolio-node" target="_blank">GitHub</a>
                     <a href="https://github.com/ditsyandrea22/Portofolio-node/issues" target="_blank">Issues</a>
                     <a href="https://github.com/ditsyandrea22/Portofolio-node/blob/main/LICENSE" target="_blank">License</a>
